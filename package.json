@@ -1,0 +1,37 @@
+{
+  "name": "hotel_property_manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "syntax": "./node_modules/eslint/bin/eslint.js . --fix",
+    "debugger": "DEBUG=*:* npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "pre-commit": [
+    "syntax"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@git.generalassemb.ly:nyc-wdi-palmarius/hotel_property_manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "jquery": "^3.2.1",
+    "materialize-css": "^0.98.2",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2",
+    "pg-promise": "^5.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0",
+    "pre-commit": "^1.2.2"
+  }
+}

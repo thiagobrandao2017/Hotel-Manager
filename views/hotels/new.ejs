@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include ./partials/head.ejs %>
+  </head>
+  <body>
+
+    <nav>
+      <%- include ./partials/nav.ejs %>
+    </nav>
+
+
+    <form method="POST" action="/hotels">
+      <div class="container margin-top-20">
+        <div class="row">
+          <div class="col s12">
+            <div class="card">
+              <div class="card-stacked">
+                <div class="card-content">
+
+                  <div class="row">
+                    <div class="input-field col s9">
+                      <input name="hotel[hotel_name]" type="text" placeholder="Hotel Name" />
+                    </div>
+
+                    <div class="range-field col s3">
+                      <label for="star_rating">Hotel Star Rating</label>
+                      <input type="range" id="star_rating" min="1" max="5" name="hotel[star_rating]" />
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s9">
+                      <textarea name="hotel[hotel_description]" placeholder="Hotel Description" class="materialize-textarea"></textarea>
+                    </div>
+                    <div class="input-field col s3">
+                      <input type='hidden' value='0' name='hotel[pet_friendly]'>
+                      <input type="checkbox" id="pet_friendly" name="hotel[pet_friendly]" />
+                      <label for="pet_friendly">Pet Friendly?</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input name="hotel[hotel_image_url]" type="text" placeholder="Hotel Image URL" />
+                    </div>
+                    <div class="input-field col s6">
+                      <input name="hotel[hotel_address]" type="text" placeholder="Hotel Address" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-action">
+                  <button type="submit" class="waves-effect waves-light btn">Submit Hotel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </body>
+</html>

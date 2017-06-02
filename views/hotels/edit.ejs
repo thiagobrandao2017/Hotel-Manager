@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include ./partials/head.ejs %>
+  </head>
+  <body>
+
+    <nav>
+      <%- include ./partials/nav.ejs %>
+    </nav>
+
+    <div class="container margin-top-20">
+      <div class="row">
+        <div class="col s12">
+          <div class="card horizontal">
+            <div class="card-image">
+              <img src="<%= hotel.hotel_image_url %>">
+
+              <form method="POST" action="/hotels/<%= hotel.id %>?_method=delete">
+                <button class="btn-floating btn-large waves-effect waves-light red margin-top-20" style="margin-left:10px;"><i class="material-icons">delete</i></button>
+              </form>
+            </div>
+
+            <form method="POST" action="/hotels/<%= hotel.id %>?_method=put">
+              <div class="card-stacked">
+                <div class="card-content">
+                  <div class="input-field">
+                    <input name="hotel[hotel_name]" type="text" placeholder="Hotel Name" value="<%= hotel.hotel_name %>" />
+                  </div>
+
+                  <div class="input-field">
+                    <textarea name="hotel[hotel_description]" placeholder="Hotel Description" class="materialize-textarea"><%= hotel.hotel_description %></textarea>
+                  </div>
+
+                  <div class="input-field">
+                    <input name="hotel[hotel_address]" type="text" placeholder="Hotel Address" value="<%= hotel.hotel_address %>" />
+                  </div>
+
+                  <div class="input-field">
+                    <select name="hotel[star_rating]">
+                      <option value="">Hotel Star Rating</option>
+                      <option <% if (hotel.star_rating === 1) { %> selected <% } %> value="1">1 Star</option>
+                      <option <% if (hotel.star_rating === 2) { %> selected <% } %> value="2">2 Stars</option>
+                      <option <% if (hotel.star_rating === 3) { %> selected <% } %> value="3">3 Stars</option>
+                      <option <% if (hotel.star_rating === 4) { %> selected <% } %> value="4">4 Stars</option>
+                      <option <% if (hotel.star_rating === 5) { %> selected <% } %> value="5">5 Stars</option>
+                    </select>
+                  </div>
+
+                  <div class="input-field">
+                    <select name="hotel[pet_friendly]">
+                      <option value="">Pet Friendly?</option>
+                      <option <% if (hotel.pet_friendly) { %> selected <% } %> value="true">Yes</option>
+                      <option <% if (!hotel.pet_friendly) { %> selected <% } %> value="false">No</option>
+                    </select>
+                  </div>
+
+                  <div class="input-field">
+                    <input name="hotel[hotel_image_url]" type="text" placeholder="Hotel Image URL" value="<%= hotel.hotel_image_url %>" />
+                  </div>
+                </div>
+                <div class="card-action">
+                  <button class="waves-effect waves-light btn">Submit Changes</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
